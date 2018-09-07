@@ -1,0 +1,381 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>MongoDB 索引 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="replica_set.html" />
+    
+    
+    <link rel="prev" href="CURD.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="mongo_introduction.html">
+            
+                <a href="mongo_introduction.html">
+            
+                    
+                    MongoDB 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="CURD.html">
+            
+                <a href="CURD.html">
+            
+                    
+                    MongoDB CURD 操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.3" data-path="ind.html">
+            
+                <a href="ind.html">
+            
+                    
+                    MongoDB 索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="replica_set.html">
+            
+                <a href="replica_set.html">
+            
+                    
+                    副本集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >MongoDB 索引</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="mongodb-&#x7D22;&#x5F15;">MongoDB &#x7D22;&#x5F15;</h1>
+<p> <strong>_id  &#x4E3A;&#x6240;&#x6709;&#x6587;&#x6863;&#x7684;&#x9ED8;&#x8BA4;&#x7D22;&#x5F15;&#xFF0C;&#x6240;&#x6709;&#x6587;&#x6863;&#x90FD;&#x542B;&#x6709;&#x8BE5;&#x7D22;&#x5F15;</strong></p>
+<ul>
+<li><h3 id="&#x521B;&#x5EFA;&#x7D22;&#x5F15;">&#x521B;&#x5EFA;&#x7D22;&#x5F15;</h3>
+<pre><code>  db.collection.createIndex( 
+      &lt;key and index type specification&gt;, &lt;options&gt; 
+  )
+</code></pre><p>  3&#x3002;0 &#x7248;&#x672C;&#x540E; ensureIndex &#x88AB;&#x653E;&#x5F03;&#xFF0C;&#x88AB;&#x8BBE;&#x5B9A;&#x4E3A; createIndex &#x522B;&#x540D;</p>
+<blockquote>
+<p>db.collection.createIndex( { </p>
+<pre><code>  &lt; keys &gt;,
+  &lt; options &gt;
+</code></pre><p>   } )</p>
+</blockquote>
+<p>  &#x5B57;&#x6BB5; key &#x5BF9;&#x5E94; value &#x53EF;&#x53D6; &#x503C; 1 &#x6216; -1 &#xFF0C;1 &#x8868;&#x793A;&#x7D22;&#x5F15;&#x9ED8;&#x8BA4;&#x5347;&#x5E8F;&#x6392;&#x5E8F;&#xFF0C;-1 &#x8868;&#x793A;&#x7D22;&#x5F15;&#x9ED8;&#x8BA4;&#x964D;&#x5E8F;&#x6392;&#x5E8F;</p>
+<p>  <strong>options</strong> :</p>
+<ul>
+<li><p>background</p>
+<p>  &#x7C7B;&#x578B;&#xFF1A;boolean, &#x6307;&#x5B9A;&#x8FD4;&#x56DE;&#x7684;&#x5B57;&#x6BB5;  1  &#x8FD4;&#x56DE; 0 &#x4E0D;&#x8FD4;&#x56DE; &#x5982;&#xFF1A;{&quot;a&quot;:1,&quot;b&quot;:0} &#xFF0C;&#x5F53;&#x8BBE;&#x5B9A;&#x8BE5; projection &#x65F6; &#x67E5;&#x8BE2;&#x7ED3;&#x6784;&#x7684;&#x6587;&#x6863;&#x4E2D;&#x5C06;&#x8FD4;&#x56DE; 1</p>
+</li>
+<li><p>unique </p>
+<p>  &#x7C7B;&#x578B;&#xFF1A;boolean, true&#xFF0C;&#x521B;&#x5EFA;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#xFF0C;&#x8BE5;&#x9009;&#x9879;&#x5BF9;&#x54C8;&#x5E0C;&#x7D22;&#x5F15;&#x4E0D;&#x53EF;&#x7528;</p>
+</li>
+<li><p>name </p>
+<p>  &#x7C7B;&#x578B;&#xFF1A;string, &#x7D22;&#x5F15;&#x540D;&#x79F0;&#xFF0C;&#x5982;&#x672A;&#x6307;&#x5B9A;,MongoDB&#x4E32;&#x8054;&#x7D22;&#x5F15;&#x5B57;&#x6BB5;&#x7684;&#x540D;&#x79F0;&#x548C;&#x6392;&#x5E8F;&#x987A;&#x5E8F;&#x751F;&#x6210;&#x7D22;&#x5F15;&#x540D;&#x79F0;</p>
+</li>
+<li><p>partialFilterExpression</p>
+<p>  &#x7C7B;&#x578B;&#xFF1A;document, &#x90E8;&#x5206;&#x7D22;&#x5F15;&#xFF0C;&#x53EF;&#x6307;&#x5B9A;&#x4EC5;&#x7D22;&#x5F15;&#x7279;&#x6761;&#x4EF6;&#x4E0B;&#x7684;&#x6587;&#x672C;&#xFF0C;&#x5176;&#x5B83;&#x5219;&#x4E0D;&#x7D22;&#x5F15;,3.2 &#x4EE5;&#x540E;&#x7684;&#x7248;&#x672C;&#x624D;&#x6709;&#x8BE5;&#x5C5E;&#x6027;</p>
+</li>
+<li><p>sparse</p>
+<p>  &#x7C7B;&#x578B;&#xFF1A; boolean&#xFF0C;true&#xFF0C;&#x7A00;&#x758F;&#x7D22;&#x5F15;&#xFF0C;&#x7D22;&#x5F15;&#x53EA;&#x5F15;&#x7528;&#x5177;&#x6709;&#x6307;&#x5B9A;&#x5B57;&#x6BB5;&#x7684;&#x6587;&#x6863;&#xFF0C;3.2 &#x4E4B;&#x540E;&#x7684;&#x7248;&#x672C;&#x5E94;&#x5F53;&#x4F18;&#x5148;&#x4F7F;&#x7528;&#x90E8;&#x5206;&#x7D22;&#x5F15;</p>
+</li>
+<li><p>expireAfterSeconds</p>
+<p>  &#x7C7B;&#x578B;&#xFF1A;int &#xFF0C;TTL &#x7D22;&#x5F15;&#xFF0C;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x503C;(&#x4EE5;&#x79D2;&#x4E3A;&#x5355;&#x4F4D;)&#xFF0C;&#x63A7;&#x5236;MongoDB&#x96C6;&#x5408;&#x4E2D;&#x6587;&#x6863;&#x7684;&#x5B58;&#x6D3B;&#x65F6;&#x95F4;</p>
+</li>
+<li><p>storageEngine</p>
+<p>  &#x7C7B;&#x578B;&#xFF1A;document,  &#x521B;&#x5EFA;&#x7D22;&#x5F15;&#x7528;&#x6237;&#x81EA;&#x4E3B;&#x914D;&#x7F6E;&#x5B58;&#x50A8;&#x5F15;&#x64CE;                    </p>
+</li>
+</ul>
+</li>
+<li><h3 id="&#x7D22;&#x5F15;&#x7C7B;&#x578B;">&#x7D22;&#x5F15;&#x7C7B;&#x578B;</h3>
+<ul>
+<li><p>&#x5355;&#x4E2A;&#x5B57;&#x6BB5;&#x7D22;&#x5F15;</p>
+<p>  &#x7D22;&#x5F15;&#x5EFA;&#x7ACB;&#x5728;&#x5355;&#x4E00;&#x5B57;&#x6BB5;&#x4E0A; &#x5982;&#xFF1A;</p>
+<pre><code>  db.collection.createIndex({ name : -1 })
+</code></pre></li>
+<li><p>&#x590D;&#x5408;&#x7D22;&#x5F15;</p>
+<p>  &#x591A;&#x4E2A;&#x5B57;&#x6BB5;&#x8054;&#x5408;&#x5EFA;&#x7ACB;&#x7D22;&#x5F15; &#x5982;&#xFF1A;</p>
+<pre><code>  db.collection.createIndex({ userid : 1, score : -1 })    
+</code></pre></li>
+<li><p>Multikey</p>
+<p>  multikey &#x7D22;&#x5F15;&#x7528;&#x6765;&#x7D22;&#x5F15;&#x5B58;&#x50A8;&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x679C;&#x4E3A;&#x4FDD;&#x5B58;&#x6570;&#x7EC4;&#x503C;&#x7684;&#x5B57;&#x6BB5;&#x7F16;&#x5236;&#x7D22;&#x5F15;, MongoDB &#x5C06;&#x4E3A;&#x6570;&#x7EC4;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x521B;&#x5EFA;&#x5355;&#x72EC;&#x7684;&#x7D22;&#x5F15;&#x9879; &#x5982;&#xFF1A;</p>
+<pre><code>  &#x5B58;&#x5728;&#x6587;&#x6863; :
+  {
+      &quot;name&quot; : &quot;xyz&quot;,
+      addr : [
+          { &quot;zip&quot; : &quot;10036&quot; },
+          { &quot;rar&quot; : &quot;30005&quot; }
+      ]   
+  }
+  &#x82E5;&#x8981;&#x4E3A; addr &#x6570;&#x7EC4;&#x4E2D;&#x7684; zip &#x5B57;&#x6BB5;&#x5EFA;&#x7ACB;&#x7D22;&#x5F15;&#x5219;&#x5E94;:
+  db.collection.createIndex( { &quot;addr.zip&quot; : 1 } )
+</code></pre><p><strong>&#x6B64;&#x5916; MongoDB &#x8FD8;&#x652F;&#x6301;&#x5730;&#x7406;&#x7A7A;&#x95F4;&#x7D22;&#x5F15;&#xFF0C;&#x6587;&#x672C;&#x7D22;&#x5F15;&#xFF0C;&#x54C8;&#x5E0C;&#x7D22;&#x5F15;&#xFF0C;&#x8BE6;&#x60C5;&#x53EF;&#x4EA7;&#x770B;MongoDB&#x6587;&#x6863;</strong></p>
+</li>
+</ul>
+</li>
+<li><h3 id="&#x7D22;&#x5F15;&#x5C5E;&#x6027;">&#x7D22;&#x5F15;&#x5C5E;&#x6027;</h3>
+<ul>
+<li><p>&#x552F;&#x4E00;&#x7D22;&#x5F15;</p>
+<p>  &#x552F;&#x4E00;&#x7D22;&#x5F15;&#x62D2;&#x7EDD;&#x7D22;&#x5F15;&#x5B57;&#x6BB5;&#x7684;&#x91CD;&#x590D;&#x503C;&#xFF0C;&#x63D2;&#x5165;&#x66F4;&#x65B0;&#x96C6;&#x5408;&#x65F6;&#xFF0C;MongoDB&#x5C06;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6EE1;&#x8DB3;&#x552F;&#x4E00;&#x6761;&#x4EF6;&#xFF0C;&#x5426;&#x5219;&#x63D2;&#x5165;&#x66F4;&#x65B0;&#x5931;&#x8D25;&#xFF0C;&#x521B;&#x5EFA;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF0C;&#x8BBE;&#x7F6E;unique &#x4E3A;true &#x5373;&#x53EF;</p>
+<blockquote>
+<p>db.collection.createIndex({ &quot;user_name&quot; : 1,{ unique : true } })</p>
+</blockquote>
+</li>
+<li><p>&#x90E8;&#x5206;&#x7D22;&#x5F15;</p>
+<p>  &#x90E8;&#x5206;&#x7D22;&#x5F15;&#x4EC5;&#x7D22;&#x5F15;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x7684;&#x6587;&#x6863;&#x3002;&#x90E8;&#x5206;&#x7D22;&#x5F15;&#x5177;&#x6709;&#x8F83;&#x4F4E;&#x7684;&#x5B58;&#x50A8;&#x9700;&#x6C42;&#xFF0C;&#x964D;&#x4F4E;&#x4E86;&#x7D22;&#x5F15;&#x521B;&#x5EFA;&#x548C;&#x7EF4;&#x62A4;&#x7684;&#x6027;&#x80FD;&#x6210;&#x672C;&#xFF0C;&#x5982;&#xFF1A;</p>
+<pre><code>  db.restaurants.createIndex(
+     { cuisine: 1, name: 1 },
+     { partialFilterExpression: { rating: { $gt: 5 } } }
+  )
+</code></pre><p>   &#x8BE5;&#x8BED;&#x53E5;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x590D;&#x5408;&#x7D22;&#x5F15;&#x7684;&#x90E8;&#x5206;&#x7D22;&#x5F15;&#xFF0C;&#x4EC5;&#x5F53;&#x6587;&#x6863;&#x4E2D;&#x7684;rating &#x503C;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;5&#x65F6;&#xFF0C;&#x624D;&#x8054;&#x5408;&#x7D22;&#x5F15; cuisine &#xFF0C;name &#x5B57;&#x6BB5;</p>
+</li>
+<li><p>&#x7A00;&#x758F;&#x7D22;&#x5F15;</p>
+<p>  &#x7A00;&#x758F;&#x7D22;&#x5F15;&#x4EC5;&#x5305;&#x542B;&#x5177;&#x6709;&#x7D22;&#x5F15;&#x5B57;&#x6BB5;&#x7684;&#x6587;&#x6863;&#x7684;&#x6761;&#x76EE;&#xFF0C;3.2 &#x4E4B;&#x540E;&#x7248;&#x672C;&#x4F18;&#x5148;&#x4F7F;&#x7528;&#x90E8;&#x5206;&#x7D22;&#x5F15;&#xFF0C;&#x521B;&#x5EFA;&#x65F6;&#x5C06;options &#x53C2;&#x6570;spare &#x8BBE;&#x5B9A;&#x4E3A;true &#x5373;&#x53EF;&#xFF0C;&#x5982;&#xFF1A;</p>
+<pre><code>  db.addresses.createIndex(
+      { &quot;xmpp_id&quot;: 1 }, { sparse: true } 
+  )
+</code></pre></li>
+<li><p>TTL&#x7D22;&#x5F15;</p>
+<p>  TTL&#x7D22;&#x5F15;&#x53EF;&#x63A7;&#x5236;&#x6587;&#x6863;&#x5728;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5B58;&#x6D3B;&#x65F6;&#x95F4;&#xFF0C;&#x5F53;&#x7D22;&#x5F15;&#x65F6;&#x95F4;&#x5B58;&#x6D3B;&#x65F6;&#x95F4;&#x8D85;&#x8FC7;TTL&#x8BBE;&#x5B9A;&#x65F6;&#x95F4;&#x65F6;&#xFF0C;MongoDB&#x5C06;&#x81EA;&#x52A8;&#x5220;&#x9664;&#x8FC7;&#x671F;&#x7684;&#x7D22;&#x5F15;&#x4E0E;&#x76F8;&#x5BF9;&#x5E94;&#x7684;&#x6587;&#x6863;        </p>
+</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="CURD.html" class="navigation navigation-prev " aria-label="Previous page: MongoDB CURD 操作">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="replica_set.html" class="navigation navigation-next " aria-label="Next page: 副本集">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"MongoDB 索引","level":"1.1.3","depth":2,"next":{"title":"副本集","level":"1.1.4","depth":2,"path":"replica_set.md","ref":"replica_set.md","articles":[]},"previous":{"title":"MongoDB CURD 操作","level":"1.1.2","depth":2,"path":"CURD.md","ref":"CURD.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ind.md","mtime":"2018-08-05T05:23:38.617Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-03T09:43:45.713Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

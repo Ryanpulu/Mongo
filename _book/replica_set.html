@@ -1,0 +1,354 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>副本集 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="ind.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="mongo_introduction.html">
+            
+                <a href="mongo_introduction.html">
+            
+                    
+                    MongoDB 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="CURD.html">
+            
+                <a href="CURD.html">
+            
+                    
+                    MongoDB CURD 操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="ind.html">
+            
+                <a href="ind.html">
+            
+                    
+                    MongoDB 索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.4" data-path="replica_set.html">
+            
+                <a href="replica_set.html">
+            
+                    
+                    副本集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >副本集</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="mongodb-&#x526F;&#x672C;&#x96C6;">MongoDB &#x526F;&#x672C;&#x96C6;</h1>
+<p><strong>MongoDB &#x4E2D;&#x7684;&#x526F;&#x672C;&#x96C6;&#x662F;&#x4E00;&#x7EC4;&#x7EF4;&#x62A4;&#x540C;&#x4E00;&#x6570;&#x636E;&#x96C6;&#x7684; mongod &#x8FDB;&#x7A0B;&#x3002;&#x526F;&#x672C;&#x96C6;&#x63D0;&#x4F9B;&#x5197;&#x4F59;&#x548C;&#x9AD8;&#x53EF;&#x7528;&#x6027;, &#x662F;&#x6240;&#x6709;&#x751F;&#x4EA7;&#x90E8;&#x7F72;&#x7684;&#x57FA;&#x7840;</strong></p>
+<ul>
+<li><h3 id="mongodb-&#x4E2D;&#x7684;&#x590D;&#x5236;">MongoDB &#x4E2D;&#x7684;&#x590D;&#x5236;</h3>
+<p>  &#x526F;&#x672C;&#x96C6;&#x662F;&#x4E00;&#x7EC4;&#x7EF4;&#x62A4;&#x76F8;&#x540C;&#x6570;&#x636E;&#x96C6;&#x7684; mongod &#x5B9E;&#x4F8B;&#x3002;&#x526F;&#x672C;&#x96C6;&#x5305;&#x542B;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x8F74;&#x627F;&#x8282;&#x70B9;&#x548C;&#x53EF;&#x9009;&#x7684;&#x4E00;&#x4E2A;&#x4EF2;&#x88C1;&#x8282;&#x70B9;&#x3002;&#x5728;&#x6570;&#x636E;&#x8F74;&#x627F;&#x8282;&#x70B9;&#x4E2D;, &#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6210;&#x5458;&#x88AB;&#x89C6;&#x4E3A;&#x4E3B;&#x8282;&#x70B9;, &#x800C;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x5219;&#x88AB;&#x89C6;&#x4E3A;&#x526F;&#x672C;&#x8282;&#x70B9;</p>
+<p>  <img src="images/primary-secondary.png" alt="Image text"></p>
+<p>  &#x4E3B;&#x8282;&#x70B9;&#x63A5;&#x6536;&#x6240;&#x6709;&#x7684;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#xFF0C;&#x526F;&#x672C;&#x96C6;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x4E3B;&#x529F;&#x80FD;&#x3002;&#x4E3B;&#x8981;&#x8BB0;&#x5F55;&#x5BF9;&#x5B83;&#x7684;&#x6570;&#x636E;&#x96C6;&#x7684;&#x6240;&#x6709;&#x53D8;&#x52A8;&#x5728;&#x5B83;&#x7684;&#x64CD;&#x4F5C;&#x65E5;&#x5FD7;&#xFF0C;&#x5373;oplog&#xFF0C;&#x526F;&#x672C;&#x8D1F;&#x8D23;&#x590D;&#x5236;&#x4E3B; oplog, 
+  &#x5E76;&#x5C06;&#x8FD9;&#x4E9B;&#x64CD;&#x4F5C;&#x5E94;&#x7528;&#x5230;&#x5176;&#x5B83;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x4EE5;&#x4FBF;&#x526F;&#x672C;&#x7684;&#x6570;&#x636E;&#x96C6;&#x53CD;&#x6620;&#x4E3B;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x526F;&#x672C;&#x96C6;&#x5B9E;&#x4F8B;&#x76F8;&#x4E92;&#x4FDD;&#x6301;&#x5FC3;&#x8DF3;&#xFF0C;&#x5F53;&#x68C0;&#x9A8C;&#x5230;&#x67D0;&#x4E2A;mongod &#x5B9E;&#x4F8B;&#x5FC3;&#x8DF3;&#x505C;&#x6B62;&#x65F6;&#xFF0C;&#x81EA;&#x52A8;&#x6458;&#x9664;&#x8BE5;mongod 
+  &#x5B9E;&#x4F8B;&#xFF0C;&#x5982;&#x4E3B;&#x8282;&#x70B9;&#x88AB;&#x6458;&#x9664;&#xFF0C;&#x5219;&#x8FDB;&#x5165;&#x4EF2;&#x88C1;&#xFF0C;&#x9009;&#x4E3E;&#xFF0C;&#x81EA;&#x52A8;&#x5207;&#x6362;&#x4E3B;&#x8282;&#x70B9;</p>
+<p>  <img src="images/heartBeat.png" alt="Image text"></p>
+<p>  &#x53EF;&#x4EE5;&#x5C06;&#x989D;&#x5916;&#x7684; mongod &#x5B9E;&#x4F8B;&#x6DFB;&#x52A0;&#x5230;&#x526F;&#x672C;&#x96C6;&#x4F5C;&#x4E3A;&#x4EF2;&#x88C1;&#x8005;&#xFF0C;&#x4EF2;&#x88C1;&#x4EBA;&#x4E0D;&#x7EF4;&#x62A4;&#x6570;&#x636E;&#x96C6;,&#x4EF2;&#x88C1;&#x8005;&#x7684;&#x76EE;&#x7684;&#x662F;&#x901A;&#x8FC7;&#x54CD;&#x5E94;&#x5176;&#x4ED6;&#x526F;&#x672C;&#x96C6;&#x6210;&#x5458;&#x7684;&#x5FC3;&#x8DF3;&#x548C;&#x9009;&#x4E3E;&#x8BF7;&#x6C42;&#x6765;&#x7EF4;&#x62A4;&#x526F;&#x672C;&#x96C6;&#x4E2D;&#x7684;&#x4EF2;&#x88C1;&#x3002;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x4E0D;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x96C6;,&#x6240;&#x4EE5;&#x4EF2;&#x88C1;&#x5458;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x6BD4;&#x5177;&#x6709;&#x6570;&#x636E;&#x96C6;&#x7684;&#x5B8C;&#x5168;&#x529F;&#x80FD;&#x7684;&#x526F;&#x672C;&#x96C6;&#x6210;&#x5458;&#x66F4;&#x4FBF;&#x5B9C;&#x7684;&#x8D44;&#x6E90;&#x6210;&#x672C;,&#x4ECE;&#x800C;&#x4E3A;&#x590D;&#x5236;&#x96C6;&#x4EF2;&#x88C1;&#x529F;&#x80FD;&#x5E26;&#x6765;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x5982;&#x679C;&#x60A8;&#x7684;&#x526F;&#x672C;&#x96C6;&#x6709;&#x5076;&#x6570;&#x7684;&#x6210;&#x5458;, &#x5219;&#x6DFB;&#x52A0;&#x4EF2;&#x88C1;&#x4EBA;&#x4EE5;&#x5728;&#x521D;&#x9009;&#x7684;&#x9009;&#x4E3E;&#x4E2D;&#x83B7;&#x5F97;&#x591A;&#x6570;&#x9009;&#x7968;&#x3002;</p>
+</li>
+<li><h3 id="&#x6545;&#x969C;&#x81EA;&#x52A8;&#x5207;&#x6362;">&#x6545;&#x969C;&#x81EA;&#x52A8;&#x5207;&#x6362;</h3>
+<p>  &#x5F53;&#x4E3B;&#x4E0D;&#x4E0E;&#x8BBE;&#x7F6E;&#x7684;&#x5176;&#x4ED6;&#x6210;&#x5458;&#x901A;&#x4FE1;&#x8D85;&#x8FC7;&#x914D;&#x7F6E;&#x7684;electionTimeoutMillis&#x671F;&#x95F4; (&#x9ED8;&#x8BA4;&#x4E3A;10&#x79D2;) &#x65F6;, &#x5408;&#x683C;&#x7684;&#x6B21;&#x8981;&#x8981;&#x6C42;&#x9009;&#x4E3E;&#x63D0;&#x540D;&#x81EA;&#x5DF1;&#x4E3A;&#x65B0;&#x4E3B;&#x3002;&#x8BE5;&#x7FA4;&#x96C6;&#x8BD5;&#x56FE;&#x5B8C;&#x6210;&#x65B0;&#x7684;&#x521D;&#x9009;&#x548C;&#x6062;&#x590D;&#x6B63;&#x5E38;&#x64CD;&#x4F5C;&#x7684;&#x9009;&#x4E3E;  </p>
+<p>  <img src="images/problem.png" alt="Image text"></p>
+<p>  &#x5982;&#x679C;&#x9ED8;&#x8BA4;&#x7684; replica configuration settings, 
+  &#x5219;&#x5728;&#x7FA4;&#x96C6;&#x9009;&#x62E9;&#x65B0;&#x4E3B;&#x9879;&#x4E4B;&#x524D;&#x7684;&#x4E2D;&#x95F4;&#x65F6;&#x95F4;&#x901A;&#x5E38;&#x4E0D;&#x5E94;&#x8D85;&#x8FC7;12&#x79D2;&#x3002;&#x8FD9;&#x5305;&#x62EC;&#x5C06;&#x4E3B;&#x6807;&#x8BB0;&#x4E3A;&#x4E0D;&#x53EF;&#x7528;&#x5E76;&#x8C03;&#x7528;&#x5E76;&#x5B8C;&#x6210;&#x9009;&#x4E3E;&#x6240;&#x9700;&#x7684;&#x65F6;&#x95F4;&#x3002;&#x901A;&#x8FC7;&#x4FEE;&#x6539; settings.electionTimeoutMillis &#x590D;&#x5236;&#x914D;&#x7F6E;&#x9009;&#x9879;&#x6765;&#x8C03;&#x6574;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#x6BB5;&#x3002;&#x8BF8;&#x5982;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;&#x7B49;&#x56E0;&#x7D20;&#x53EF;&#x80FD;&#x4F1A;&#x5EF6;&#x957F;&#x590D;&#x5236;&#x526F;&#x672C;&#x96C6;&#x9009;&#x4E3E;&#x6240;&#x9700;&#x7684;&#x65F6;&#x95F4;, &#x8FD9;&#x53CD;&#x8FC7;&#x6765;&#x4F1A;&#x5F71;&#x54CD;&#x7FA4;&#x96C6;&#x5728;&#x6CA1;&#x6709;&#x4E3B;&#x8BA1;&#x7B97;&#x673A;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x95F4;&#x91CF;&#x3002;&#x8FD9;&#x4E9B;&#x56E0;&#x7D20;&#x53D6;&#x51B3;&#x4E8E;&#x7279;&#x5B9A;&#x7FA4;&#x96C6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</p>
+<p>  &#x5C06; electionTimeoutMillis &#x590D;&#x5236;&#x914D;&#x7F6E;&#x9009;&#x9879;&#x4ECE;&#x9ED8;&#x8BA4;&#x7684;10000 (10 &#x79D2;) &#x4E2D;&#x964D;&#x4F4E;&#x4F1A;&#x5BFC;&#x81F4;&#x5BF9;&#x4E3B;&#x6545;&#x969C;&#x7684;&#x5FEB;&#x901F;&#x68C0;&#x6D4B;&#x3002;&#x4F46;&#x662F;, &#x7FA4;&#x96C6;&#x53EF;&#x80FD;&#x4F1A;&#x66F4;&#x9891;&#x7E41;&#x5730;&#x8C03;&#x7528;&#x9009;&#x4E3E;, &#x539F;&#x56E0;&#x662F;&#x4E34;&#x65F6;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;, &#x5373;&#x4F7F;&#x4E3B;&#x8981;&#x662F;&#x5065;&#x5EB7;&#x7684;&#x3002;&#x8FD9;&#x4F1A;&#x5BFC;&#x81F4; w: 1 &#x5199;&#x64CD;&#x4F5C;&#x589E;&#x52A0;&#x56DE;&#x6EDA; &#x3002;</p>
+</li>
+<li><h3 id="&#x526F;&#x672C;&#x96C6;&#x6210;&#x5458;&#x5206;&#x7C7B;">&#x526F;&#x672C;&#x96C6;&#x6210;&#x5458;&#x5206;&#x7C7B;</h3>
+<ul>
+<li><h5 id="&#x4E3B;&#x6210;&#x5458;">&#x4E3B;&#x6210;&#x5458;</h5>
+<p>  &#x4E3B;&#x662F;&#x526F;&#x672C;&#x96C6;&#x4E2D;&#x552F;&#x4E00;&#x63A5;&#x6536;&#x5199;&#x64CD;&#x4F5C;&#x7684;&#x6210;&#x5458;&#xFF0C;&#x4E3B;&#x63A5;&#x6536;&#x6240;&#x6709;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x7136;&#x540E;&#x6B21;&#x590D;&#x5236;oplog
+  &#x5E94;&#x7528;&#x4E0E;&#x5B83;&#x4EEC;&#x7684;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x526F;&#x672C;&#x96C6;&#x7684;&#x6240;&#x6709;&#x6210;&#x5458;&#x90FD;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x662F;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5C06;&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;&#x5B9A;&#x5411;&#x5230;&#x4E3B;&#xFF0C;&#x4E3B;&#x518D;&#x5206;&#x53D1;&#x8BFB;&#x53D6;&#x8BF7;&#x6C42;&#x5230;&#x5176;&#x5B83;&#x6210;&#x5458;</p>
+</li>
+<li><h5 id="&#x526F;&#x672C;&#x6210;&#x5458;">&#x526F;&#x672C;&#x6210;&#x5458;</h5>
+<ul>
+<li><p>&#x4F18;&#x5148;&#x7EA7;&#x4E3A; 0 &#x7684;&#x526F;&#x672C;&#x6210;&#x5458;</p>
+<p>  &#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x8F85;&#x52A9;&#xFF0C;&#x7EF4;&#x62A4;&#x6570;&#x636E;&#x96C6;&#x7684;&#x526F;&#x672C;&#xFF0C;&#x63A5;&#x53D7;&#x8BFB;&#x53D6;&#x8BF7;&#x6C42;&#xFF0C;&#x5E76;&#x5728;&#x9009;&#x4E3E;&#x4E2D;&#x6295;&#x7968;&#xFF0C;&#x4F46;&#x662F; priority 0 (&#x5373;&#x8BE5;&#x6210;&#x5458;) &#x4E0D;&#x80FD;&#x6210;&#x4E3A;&#x521D;&#x9009;&#x6210;&#x5458;&#xFF0C;&#x4E0D;&#x53C2;&#x4E0E;&#x9009;&#x4E3E;&#xFF0C;&#x5373;&#x5B83;&#x4EEC;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x6210;&#x4E3A;&#x4E3B;</p>
+</li>
+<li><p>&#x9690;&#x85CF;&#x6210;&#x5458;</p>
+<p>  &#x9690;&#x85CF;&#x6210;&#x5458;&#x5FC5;&#x987B;&#x662F;&#x4F18;&#x5148;&#x7EA7;&#x4E3A; 0 &#x7684;&#x526F;&#x672C;&#x6210;&#x5458;&#xFF0C;&#x540C;&#x65F6;&#xFF0C;&#x5B83;&#x4EEC;&#x7EF4;&#x62A4;&#x6570;&#x636E;&#x96C6;&#x4F46;&#x4E0D;&#x63A5;&#x53D7;&#x8BFB;&#x53D6;&#x8BF7;&#x6C42;&#xFF0C;&#x9690;&#x85CF;&#x6210;&#x5458;&#x4E0D;&#x4F1A;&#x63A5;&#x6536;&#x9664;&#x4E86;&#x4EE5;&#x5916;&#x5176;&#x5B83;&#x6765;&#x7684;&#x4EFB;&#x4F55;&#x901A;&#x4FE1;</p>
+</li>
+<li><p>&#x5EF6;&#x8FDF;&#x6210;&#x5458;</p>
+<p>  &#x5EF6;&#x8FDF;&#x6210;&#x5458;&#x5FC5;&#x987B;&#x662F;&#x9690;&#x85CF;&#x6210;&#x5458;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x6570;&#x636E;&#x96C6;&#x53CD;&#x5E94;&#x4E86;&#x526F;&#x672C;&#x96C6;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x96C6;&#x7684;&#x65E9;&#x671F;&#x6216;&#x5EF6;&#x8FDF;&#x72B6;&#x6001;&#xFF0C;&#x4F8B;&#x5982;&#x67D0;&#x5EF6;&#x8FDF;&#x6210;&#x5458;&#x88AB;&#x8BBE;&#x5B9A;&#x5EF6;&#x8FDF; 
+  &#x534A;&#x5C0F;&#x65F6;&#xFF0C;&#x5219;&#x8BE5;&#x6210;&#x5458;&#x7684;&#x6570;&#x636E;&#x96C6;&#x662F;&#x4E3B;&#x6570;&#x636E;&#x96C6;&#x534A;&#x5C0F;&#x65F6;&#x4EE5;&#x524D;&#x7684;&#x6570;&#x636E;&#x96C6;&#x3002;&#x6240;&#x4EE5;&#x5B83;&#x662F;&#x6570;&#x4E5D;&#x7684;&#x6EDA;&#x52A8;&#x5907;&#x4EFD;&#xFF0C;&#x6216;&#x8FD0;&#x884C;&#x7684;&#x5386;&#x53F2;&#x5FEB;&#x7167;&#x3002;   </p>
+</li>
+</ul>
+</li>
+<li><h5 id="&#x4EF2;&#x88C1;&#x6210;&#x5458;">&#x4EF2;&#x88C1;&#x6210;&#x5458;</h5>
+<p>  &#x4EF2;&#x88C1;&#x6210;&#x5458;&#x4EC5;&#x5728;&#x9009;&#x4E3E;&#x65F6;&#x6295;&#x7968;&#xFF0C;&#x4E0D;&#x53C2;&#x4E0E;&#x6570;&#x636E;&#x96C6;&#x7684;&#x7EF4;&#x62A4;</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h3 id="&#x526F;&#x672C;&#x96C6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x90E8;&#x7F72;">&#x526F;&#x672C;&#x96C6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x90E8;&#x7F72;</h3>
+<ul>
+<li><h5 id="&#x90E8;&#x7F72;&#x7B56;&#x7565;">&#x90E8;&#x7F72;&#x7B56;&#x7565;</h5>
+<ul>
+<li><p>&#x786E;&#x5B9A;&#x6210;&#x5458;&#x6570;&#x91CF;</p>
+<p>  &#x6839;&#x636E;mongodb&#x8BBE;&#x5B9A;&#x7684;&#x7B56;&#x7565;&#xFF0C;&#x786E;&#x5B9A;&#x6210;&#x5458;&#x5206;&#x914D;</p>
+</li>
+<li><p>&#x6295;&#x7968;&#x6210;&#x5458;&#x7684;&#x6700;&#x5927;&#x6570;&#x76EE;</p>
+<p>  &#x526F;&#x672C;&#x96C6;&#x6700;&#x591A;&#x53EF;&#x4EE5;&#x6709;50&#x4E2A;50 members, &#x4F46;&#x53EA;&#x6709;7&#x4E2A;&#x6295;&#x7968;&#x6210;&#x5458;&#x3002;&#x5982;&#x679C;&#x526F;&#x672C;&#x96C6;&#x5DF2;&#x6709;7&#x4E2A;&#x6295;&#x7968;&#x6210;&#x5458;, &#x5219;&#x5176;&#x4ED6;&#x6210;&#x5458;&#x5FC5;&#x987B;&#x4E3A;&#x975E;&#x6295;&#x7968;&#x6210;&#x5458;</p>
+</li>
+<li><p>&#x90E8;&#x7F72;&#x5947;&#x6570;&#x4E2A;&#x6295;&#x7968;&#x6210;&#x5458;</p>
+<p>  &#x786E;&#x4FDD;&#x526F;&#x672C;&#x96C6;&#x7684;&#x6295;&#x7968;&#x6210;&#x5458;&#x6570;&#x76EE;&#x4E3A;&#x5947;&#x6570;&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x9700;&#x8981;&#x90E8;&#x7F72;&#x4E00;&#x4E2A;&#x4EF2;&#x88C1;&#x8005;</p>
+</li>
+<li><p>&#x4E3A;&#x4E13;&#x7528;&#x4F7F;&#x7528;&#x9690;&#x85CF;&#x6216;&#x5EF6;&#x8FDF;&#x6210;&#x5458;</p>
+<p>  &#x6DFB;&#x52A0;&#x9690;&#x85CF;&#x6216;&#x5EF6;&#x8FDF;&#x6210;&#x5458;&#x4EE5;&#x652F;&#x6301;&#x4E13;&#x7528;&#x529F;&#x80FD;&#xFF0C;&#x5982;&#x5907;&#x4EFD;&#x6216;&#x62A5;&#x544A;&#x3002;    </p>
+</li>
+<li><p>&#x6807;&#x8BB0;&#x526F;&#x672C;&#x96C6;&#x6210;&#x5458;</p>
+<p>  &#x4E3A;&#x526F;&#x672C;&#x96C6;&#x6210;&#x5458;&#x6253; tag, &#x526F;&#x672C;&#x96C6;&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x526F;&#x672C;&#x96C6;&#x6807;&#x8BB0;&#x5C06;&#x5BF9;&#x7279;&#x5B9A;&#x6210;&#x5458;&#x7684;&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;&#x8BBE;&#x7F6E;&#x4E3A;&#x76EE;&#x6807;             </p>
+</li>
+<li><p>&#x4F7F;&#x7528;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x9632;&#x6B62;&#x7535;&#x6E90;&#x65AD;&#x7535;</p>
+<p>  MongoDB &#x9ED8;&#x8BA4;&#x542F;&#x7528;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#xFF0C;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x53EF;&#x9632;&#x6B62;&#x51FA;&#x73B0;&#x670D;&#x52A1;&#x4E2D;&#x65AD;&#x65F6;&#x7684;&#x6570;&#x636E;&#x4E22;&#x5931;</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ind.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: MongoDB 索引">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"副本集","level":"1.1.4","depth":2,"previous":{"title":"MongoDB 索引","level":"1.1.3","depth":2,"path":"ind.md","ref":"ind.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"replica_set.md","mtime":"2018-08-06T06:58:38.038Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-03T09:43:45.713Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
